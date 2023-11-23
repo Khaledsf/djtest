@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<title></title>
+</head>
+<body>
+
+<img src=" {% static 'images/nature.jpeg'%} ">
+<link rel="stylesheet" type="text/css" href=" {% static 'style.css' %} ">
+<br><br>
+
+<table>
+	<form method="post" action="" value="{{ form.instance.id}}" required="">
+		{% csrf_token %}
+		{% if form.instance.id %}
+			<p>{{form.instance.id}}</p>
+			<p>ID is NOT none</p>
+			<input type="hidden" name="update" value=" {{ form.instance.id }} ">
+			{% include 'coffee_form.html' %}
+		{% elif form.instance.id is None %}
+			{% include 'coffee_form.html' %}
+		{% endif %}
+			<br> 
+			<!-- <input type="submit" name="submit"> -->
+			<button formnovalidate type="submit" name="submit">Submit</button>
+			<button formnovalidate type="submit" name="edit">update</button>
+		</div>
+			<br>
+
+		<tr>
+		    <th>ID</th>
+		    <th>Variety</th>
+		    <th>Place</th>
+		    <th>Readiness</th>
+		    <th></th>
+		    <!-- <th>delete</th> -->
+	    </tr>
+	    {%for g in grains%}
+	    <tr>
+		    <td><a href=" {% url 'single_grain' g.id %} "> {{ g.id }}</a></td>
+		    <td>{{ g.variety }}</td>
+		    <td>{{ g.place }}</td>
+		    <td>{{ g.region }}</td>
+		    <td>{{ g.rediness }}</td>
+		    <td>
+		    	<button formnovalidate type="submit" name="edit" value="{{ g.id }}">
+		    		Edit
+		    	</button>
+		    	<button formnovalidate type="submit" name="delete" value="{{ g.id }}">Delete</button>
+		    	<!-- <button formnovalidate type="submit" name="view" value="{{ g.id }}">View</button> -->
+		    </td>
+	    </tr>
+	    {% endfor %}
+    </form>
+
+</table>
+
+
+</body>
+</html>

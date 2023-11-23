@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href=" {% static 'style.css' %} ">
+	<title></title>
+</head>
+<body>
+	<img src=" {% static 'images/nature.jpeg'%} ">
+	<li><a href="/coffee">Back to list</a></li>
+	<br>
+	<form method="post" action="">
+		{% csrf_token %}
+		<div>Variety:{{ form.variety }}</div>
+		<div>Place:{{ form.place }}</div>
+		<div>Region:{{ form.region }}</div>
+		<div>Is_ready:{{ form.rediness }}</div>
+		<div>
+			<br> 
+			<!-- <input type="submit" name="submit"> -->
+			<button formnovalidate type="submit" name="update">Update</button>
+		</div>
+	</form>
+	
+</body>
+</html>
+

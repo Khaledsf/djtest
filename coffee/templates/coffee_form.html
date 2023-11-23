@@ -1,0 +1,10 @@
+<p>{{form.instance.id}}</p>
+			<p>ID is none</p>
+			<!-- <input type="hidden" name="update" value=" {{ form.instance.id }} "> -->
+			<!-- <option type="hidden" name="update" value=" {{ form.instance.id }}">foo</option> -->
+			<div>{{ form.field.as_hidden }}</div>
+			<div>Variety:{{ form.variety }}</div>
+			<div>Place:{{ form.place }}</div>
+			<div>Region:{{ form.region }}</div>
+			<div>Is_ready: <br>{{ form.rediness }}</div>
+			<div>
