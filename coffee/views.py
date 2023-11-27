@@ -13,7 +13,7 @@ def all_grains(request):
 			id = request.POST.get('update')
 			print(id)
 			if id == None:
-				form = CoffeeForm(request.POST)
+				form = CoffeeForm(request.POST, request.FILES)
 				form.save()
 			elif id != None:
 				print('This id inside submit: ', id)

@@ -10,6 +10,7 @@ class CoffeeForm(ModelForm):
 		self.fields['place'].widget.attrs.update({'class': 'form_field'})
 		self.fields['region'].widget.attrs.update({'class': 'form_field'})
 		self.fields['rediness'].widget.attrs.update({'class': 'form_field'})
+		self.fields['img'].widget.attrs.update({'class': 'form_field'})
 
 
 	class Meta:

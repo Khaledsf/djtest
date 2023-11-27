@@ -14,7 +14,7 @@
 <br><br>
 
 <table>
-	<form method="post" action="" value="{{ form.instance.id}}" required="">
+	<form method="post" action="" value="{{ form.instance.id}}" required="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{% if form.instance.id %}
 			<p>{{form.instance.id}}</p>
@@ -46,6 +46,7 @@
 		    <td>{{ g.place }}</td>
 		    <td>{{ g.region }}</td>
 		    <td>{{ g.rediness }}</td>
+		    <td><img src="{{ g.img.url }}"></td>
 		    <td>
 		    	<button formnovalidate type="submit" name="edit" value="{{ g.id }}">
 		    		Edit
